@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding of Khrisnendy & Nina</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* VARIABLES - TEMA BIRU LANGIT */
+    :root {
+      --bg-main: #f0f7ff;         /* Ice/Sky Light Blue */
+      --sky-blue: #87ceeb;        /* Sky Blue */
+      --deep-sky: #1e5683;        /* Dark Blue Accent */
+      --soft-cloud: #ffffff;      /* Pure White */
+      --text-dark: #2c3e50;       /* Navy Slate Text */
+      --text-muted: #64748b;      /* Slate Muted */
+      --border-color: #d0e3f7;   /* Soft Blue Border */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* COVER / HERO SECTION */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(180deg, #e0f2fe 0%, var(--bg-main) 100%);
+      padding: 20px;
+    }
+
+    .sub-title {
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--deep-sky);
+      margin-bottom: 15px;
+    }
+
+    .couple-names {
+      font-family: 'Alex Brush', cursive;
+      font-size: 4rem;
+      color: var(--deep-sky);
+      margin: 10px 0;
+      line-height: 1.2;
+    }
+
+    .wedding-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .btn-open {
+      padding: 12px 30px;
+      background-color: var(--deep-sky);
+      color: var(--soft-cloud);
+      border: none;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(30, 86, 131, 0.25);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-open:hover {
+      background-color: #143d5e;
+      transform: translateY(-2px);
+    }
+
+    /* MAIN CONTENT CONTAINER */
+    .content-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--deep-sky);
+      font-weight: 700;
+    }
+
+    .divider {
+      width: 50px;
+      height: 2px;
+      background-color: var(--sky-blue);
+      margin: 15px auto;
+    }
+
+    /* COUNTDOWN TIMER */
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0 50px;
+    }
+
+    .time-box {
+      background: var(--soft-cloud);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 15px;
+      min-width: 75px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .time-box span {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--deep-sky);
+      line-height: 1;
+    }
+
+    .time-box p {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+
+    /* STORY TIMELINE */
+    .timeline {
+      position: relative;
+      margin: 40px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: var(--border-color);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 35px;
+    }
+
+    .timeline-icon {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      background: var(--sky-blue);
+      border: 3px solid var(--soft-cloud);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .timeline-content {
+      position: relative;
+      width: 45%;
+      background: var(--soft-cloud);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border-color);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      left: 55%;
+      text-align: left;
+    }
+
+    .timeline-date {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--deep-sky);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .timeline-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* GALLERY SECTION */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
+      background-color: var(--soft-cloud);
+      aspect-ratio: 4 / 5;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 86, 131, 0.3);
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.3s ease;
+      color: var(--soft-cloud);
+      font-size: 1.5rem;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* LIGHTBOX MODAL FOR GALLERY */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      inset: 0;
+      background-color: rgba(15, 23, 42, 0.85);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* EVENT DETAILS & MAP */
+    .card-event {
+      background: var(--soft-cloud);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 25px rgba(135, 206, 235, 0.15);
+      margin-bottom: 40px;
+    }
+
+    .event-info {
+      margin: 20px 0;
+    }
+
+    .event-info h4 {
+      font-size: 1.1rem;
+      color: var(--deep-sky);
+      margin-bottom: 5px;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 250px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 20px;
+      border: 1px solid var(--border-color);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* RSVP & WISHES */
+    .rsvp-form {
+      background: var(--soft-cloud);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--text-dark);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: #fdfefe;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--sky-blue);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      margin-top: 50px;
+    }
+
+    footer strong {
+      color: var(--deep-sky);
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media screen and (max-width: 768px) {
+      .couple-names { font-size: 3rem; }
+      .timeline::before { left: 20px; }
+      .timeline-icon { left: 20px; }
+      
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        width: calc(100% - 45px);
+        left: 45px;
+        text-align: left;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER SECTION -->
+  <section class="hero" id="cover">
+    <p class="sub-title">Undangan Pernikahan</p>
+    <h1 class="couple-names">Khrisnendy & Nina</h1>
+    <p class="wedding-date">Minggu, 24 Januari 2027</p>
+    <a href="#main" class="btn-open">Buka Undangan</a>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="content-wrapper" id="main">
+
+    <!-- COUNTDOWN SECTION -->
+    <section class="section-header">
+      <p class="sub-title">Menuju Hari Bahagia</p>
+      <div class="countdown-container">
+        <div class="time-box"><span id="days">00</span><p>Hari</p></div>
+        <div class="time-box"><span id="hours">00</span><p>Jam</p></div>
+        <div class="time-box"><span id="minutes">00</span><p>Menit</p></div>
+        <div class="time-box"><span id="seconds">00</span><p>Detik</p></div>
+      </div>
+    </section>
+
+    <!-- LOVE STORY SECTION -->
+    <section>
+      <div class="section-header">
+        <p class="sub-title">Kisah Kami</p>
+        <h2 class="section-title">Perjalanan Saling Menemukan</h2>
+        <div class="divider"></div>
+        <p style="font-style: italic; color: var(--text-muted); font-size: 0.95rem;">
+          "Kami tidak pernah menduga bahwa perjalanan panjang untuk saling menemukan ini akhirnya akan membawa kami menuju satu bahtera yang sama: pernikahan."
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Masa Sekolah</span>
+            <h3 class="timeline-title">Awal Mula</h3>
+            <p class="timeline-text">Enam tahun bersama di sekolah yang sama, sebelum waktu dan jarak memisahkan langkah kami di jalur masing-masing.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">20 Januari 2019</span>
+            <h3 class="timeline-title">Sapaan Hangat</h3>
+            <p class="timeline-text">Khrisnendy kembali menyapa dan mengajak Nina bertemu untuk menyambung silaturahmi yang sempat terputus.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">28 Juni 2026</span>
+            <h3 class="timeline-title">Titik Balik</h3>
+            <p class="timeline-text">Pertemuan antar-keluarga dan dua hati yang berkembang menjadi sebuah keyakinan yang matang.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">16 Agustus 2026</span>
+            <h3 class="timeline-title">Lamaran</h3>
+            <p class="timeline-text">Khrisnendy bersama keluarga besar menyampaikan niat tulus secara resmi, mengunci janji menuju jenjang ikatan suci.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section style="margin-top: 60px;">
+      <div class="section-header">
+        <p class="sub-title">Galeri</p>
+        <h2 class="section-title">Momen Kebersamaan</h2>
+        <div class="divider"></div>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Klik pada foto untuk memperbesar</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('1000182694.jpg')">
+          <img src="1000182694.jpg" alt="Foto Momen 1">
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('1000182693.jpg')">
+          <img src="1000182693.jpg" alt="Foto Momen 2">
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('1000182583.jpg')">
+          <img src="1000182583.jpg" alt="Foto Momen 3">
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('1000182543.jpg')">
+          <img src="1000182543.jpg" alt="Foto Momen 4">
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('1000182542.jpg')">
+          <img src="1000182542.jpg" alt="Foto Momen 5">
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('1000182537.jpg')">
+          <img src="1000182537.jpg" alt="Foto Momen 6">
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('1000182536.jpg')">
+          <img src="1000182536.jpg" alt="Foto Momen 7">
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('1000182539.jpg')">
+          <img src="1000182539.jpg" alt="Foto Momen 8">
+          <div class="gallery-overlay">🔍</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('1000182541.jpg')">
+          <img src="1000182541.jpg" alt="Foto Momen 9">
+          <div class="gallery-overlay">🔍</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT DETAILS SECTION -->
+    <section style="margin-top: 60px;">
+      <div class="section-header">
+        <p class="sub-title">Waktu & Lokasi</p>
+        <h2 class="section-title">Rangkaian Acara</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="card-event">
+        <div class="event-info">
+          <h4>Hari / Tanggal</h4>
+          <p>Minggu, 24 Januari 2027</p>
+        </div>
+        <div class="event-info">
+          <h4>Waktu</h4>
+          <p>08.00 WIB - Selesai</p>
+        </div>
+        <div class="event-info">
+          <h4>Lokasi Acara</h4>
+          <p><strong>Aula Utama Ponyo</strong></p>
+        </div>
+
+        <!-- Google Maps Embed -->
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.672535790895!2d107.72186847499661!3d-6.929693193070114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68cce31fbfffff%3A0xa19ec6ad05307b22!2sPonyo%20Cinunuk!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP & UCAPAN -->
+    <section>
+      <div class="section-header">
+        <p class="sub-title">RSVP & Doa Restu</p>
+        <h2 class="section-title">Konfirmasi Kehadiran</h2>
+        <div class="divider"></div>
+      </div>
+
+      <form class="rsvp-form" id="rsvpForm">
+        <div class="form-group">
+          <label>Nama Tamu</label>
+          <input type="text" class="form-control" placeholder="Masukkan nama Anda" required>
+        </div>
+        <div class="form-group">
+          <label>Konfirmasi Kehadiran</label>
+          <select class="form-control" required>
+            <option value="">-- Pilih Kehadiran --</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Berhalangan Hadir</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Pesan / Ucapan Selamat</label>
+          <textarea class="form-control" rows="3" placeholder="Tuliskan ucapan & doa Anda..." required></textarea>
+        </div>
+        <button type="submit" class="btn-open" style="width: 100%; margin-top: 10px;">Kirim Ucapan</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Enlarged view">
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Organized & Animated by <strong>Krikal Animation</strong></p>
+    <p style="font-size: 0.75rem; margin-top: 5px;">© 2027 Khrisnendy & Nina. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // 1. COUNTDOWN TIMER JS
+    const targetDate = new Date('January 24, 2027 08:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+        document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+        document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 2. LIGHTBOX GALLERY
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    // 3. RSVP FORM SUBMIT ALERT
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Terima kasih! Konfirmasi dan ucapan Anda berhasil terkirim.');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
